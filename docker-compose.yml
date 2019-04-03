@@ -1,0 +1,63 @@
+version: "3.6"
+services:
+  splunk1:
+    # replace username/repo:tag with your name and image details
+    image: splunk/splunk
+    hostname: sh01
+    container_name: sh01
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: password
+    networks:
+             - front
+
+  splunk2:
+    # replace username/repo:tag with your name and image details
+    image: splunk/splunk
+    hostname: sh02
+    container_name: sh02
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: password
+    networks:
+             - front
+
+  splunk3:
+    # replace username/repo:tag with your name and image details
+    image: splunk/splunk
+    hostname: idx01
+    container_name: idx01
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: password
+    networks:
+             - front
+
+
+  splunk4:
+    # replace username/repo:tag with your name and image details
+    image: splunk/splunk
+    hostname: idx02
+    container_name: idx02
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: password
+    networks:
+             - front
+
+  splunk5:
+    # replace username/repo:tag with your name and image details
+    image: splunk/splunk
+    hostname: idx03
+    container_name: idx03
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: password
+    networks:
+             - front
+
+
+ 
+networks:
+    front:
+        driver: bridge
